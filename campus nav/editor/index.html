@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Campus Waypoint Editor</title>
+<link rel="stylesheet" href="styles.css"></head><body>
+<header><b>🗺️ Waypoint Editor</b><input id="cname" style="width:160px" aria-label="Campus name"><input id="qrbase" style="width:230px" placeholder="QR link base (optional): https://host/campus-ar/navigator/" title="If set, QR stickers encode a web link that any phone camera can open. Leave empty for in-app campus:// codes." aria-label="QR link base URL"><span class="sp"></span>
+<input id="apikey" type="password" placeholder="API key" style="width:120px" aria-label="API key"><button id="ldb">☁ Load</button><button class="pri" id="sdb">☁ Save to database</button><button id="undo">↶ Undo</button><button id="imp">Import JSON</button><input type="file" id="file" accept=".json,application/json" hidden>
+<button class="pri" id="exj">Export JSON</button><button class="pri" id="exq">Export QR PDF</button></header>
+<div id="floors"></div>
+<main><div id="stage"><canvas id="cv"></canvas>
+<div id="tools"><button data-t="select">✋ Select</button><button data-t="add">＋ Waypoint</button><button data-t="connect">🔗 Connect</button><button data-t="delete">🗑 Delete</button>
+<button id="zi">＋</button><button id="zo">－</button><button id="fit">Fit</button><label><input type="checkbox" id="snap" checked>Snap 0.5 m</label></div>
+<div id="hint"></div></div><aside id="side"></aside></main>
+<div id="toast" hidden></div>
+<script src="../vendor/qrcode.js"></script>
+<script src="../vendor/jspdf.umd.min.js"></script>
+<script src="script.js"></script></body></html>

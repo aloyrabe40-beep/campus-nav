@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CampusAR Navigator</title>
+<link rel="stylesheet" href="styles.css"></head><body>
+<div id="home">
+ <h1>🧭 CampusAR</h1><p>Scan a QR code on any floor and follow the arrows to your classroom.</p>
+ <div class="card">
+  <p id="deep" hidden style="margin:0 0 12px;color:var(--ac);font-weight:600"></p>
+  <label for="dest">Where do you want to go?</label>
+  <select id="dest"></select>
+  <button class="pri" id="go" disabled>Scan QR to start</button>
+  <ol><li>Pick your classroom.</li><li>Scan any campus QR sticker — with this app or your phone's own camera — and the app fetches that floor.</li><li>Hold your phone upright and follow the arrows.</li></ol>
+ </div>
+</div>
+
+<div id="cam" hidden data-m="scan">
+ <video id="vid" playsinline muted autoplay></video>
+ <canvas id="cv"></canvas>
+ <div id="topbar"><select id="arDest" aria-label="Destination"></select><div id="tbtn"><button id="backb">← Back</button><button id="clearb">Clear Navigation</button></div></div>
+ <div id="frame" class="os"></div>
+ <div class="ui top os"><div class="glass"><div class="big">Scan the floor QR code</div><div class="sub" id="tgt"></div></div><div class="glass" id="camerr" hidden></div></div>
+ <div class="ui bot os"><div class="sub">No QR handy? Simulate a scan:</div>
+  <div class="row"><button class="btn" data-q="campus://F1/f1S">Floor 1 lobby</button><button class="btn" data-q="campus://F2/f2S">Floor 2 stairs</button><button class="btn" data-q="campus://F3/f3B">Floor 3 hall</button></div></div>
+ <div class="ui top oa"><div class="glass"><div class="big" id="ins">…</div><div class="sub" id="sub"></div></div></div>
+ <div class="ui bot oa"><div class="row"><button class="btn" id="resc">📷 Scan QR</button><button class="btn" id="nxt">Next waypoint ›</button></div>
+  <div class="sub">Drag on screen to calibrate direction · Look up while you walk</div></div>
+ <div class="ol"><div class="sp"></div><div id="lt">Fetching floor map…</div></div>
+</div>
+<div id="toast" hidden></div>
+
+<script src="../vendor/jsQR.js"></script>
+<script src="script.js"></script>
+</body></html>
